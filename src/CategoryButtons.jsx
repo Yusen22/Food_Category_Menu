@@ -1,5 +1,5 @@
 const CategoryButtons = (props) => {
-    const { category, displayActive } = props
+    const { category, activeCat, displayActive } = props
 
     console.log(category)
     return (
@@ -8,7 +8,7 @@ const CategoryButtons = (props) => {
                 {category.map((item, i) => {
                     console.log(item)
                     return (
-                    <button onClick={() => displayActive(item)} className="btn btn-hipster">{item}</button>
+                    <button onClick={() => displayActive(item)} className={activeCat === item ? 'btn btn-hipster active-cat' : 'btn btn-hipster'}>{item}</button>
                     )
                 })}
 
