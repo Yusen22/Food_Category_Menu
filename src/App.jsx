@@ -12,6 +12,7 @@ const App = () => {
   const [menuItems, setMenuItems] = useState(menu)
   const [categories, setCategories] = useState([])
   const [activeCat, setActiveCat] = useState('')
+  const [activeSort, setActiveSort] = useState([])
 
 
 
@@ -28,6 +29,7 @@ const App = () => {
   }, [])
 
 const displayActive = (cat) => {
+  setActiveSort([])
   setActiveCat(cat)
   console.log(cat)
   if (cat === 'all') {
@@ -58,8 +60,8 @@ const sortList = (term, order = 'asc') => {
   return (
     <main>|
       <Title>Our menu</Title>
-      <CategoryButtons category = {categories} displayActive={displayActive} />
-      <Sort sortList = {sortList} originalMenu={originalMenu} menuItems = {menuItems}/>
+      <CategoryButtons activeCat = {activeCat} category={categories} displayActive={displayActive} />
+      <Sort displayActive={displayActive} activeCat={activeCat}  sortList={sortList} setActiveSort={setActiveSort} activeSort={activeSort} originalMenu={originalMenu} menuItems = {menuItems} setMenuItems={setMenuItems}/>
       <Menu menuItems = {menuItems}/>
 
 
