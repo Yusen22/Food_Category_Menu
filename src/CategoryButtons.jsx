@@ -1,12 +1,14 @@
 const CategoryButtons = (props) => {
-    const { category } = props
+    const { category, displayActive } = props
+
+    console.log(category)
     return (
         <section >
             <div className="btn-container">
                 {category.map((item, i) => {
                     console.log(item)
                     return (
-                    <button className="btn btn-hipster">{item}</button>
+                    <button onClick={() => displayActive(item)} className="btn btn-hipster">{item}</button>
                     )
                 })}
 
