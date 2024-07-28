@@ -259,11 +259,29 @@ ul {
 }
 
 .btn-container {
-  margin: 2rem 0 4rem 0;
+  margin: 2rem 0 1.5rem 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+}
+.sort-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.sort-item {
+  text-transform: capitalize;
+}
+
+.sort-item:hover {
+  color: var(--primary-600);
+  text-decoration: underline;
+  text-underline-offset: 8px;
+
 }
 .section-center {
   width: 90vw;
