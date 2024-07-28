@@ -1,12 +1,12 @@
 const MenuItem = (item) => {
-  const { img, title, category, price, desc, id, key } = item
+  const { img, title, category, price, desc, id } = item
   return (
-    <article key={key} className="menu-item">
+    <article className="menu-item">
       <img className="img" src={img} />
       <div className="item-info">
         <header className="">
           <h5>{title}</h5>
-          <p className="item-price">{price}</p>
+          <p className="item-price">${price}</p>
         </header>
         <p className="item-text">{desc}</p>
       </div>
