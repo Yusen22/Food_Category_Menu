@@ -1,11 +1,13 @@
 import { useState } from "react";
 
-import data from './data'
+import menu from './data'
 
 import Title from "./Title";
+import Menu from "./Menu";
+import MenuItem from "./MenuItem";
 
 const App = () => {
-  const [menuItems, setMenuItems] = useState(data)
+  const [menuItems, setMenuItems] = useState(menu)
   return (
     <main>|
       <Title>Our menu</Title>
