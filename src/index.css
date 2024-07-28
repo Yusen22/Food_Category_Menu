@@ -276,6 +276,9 @@ ul {
 .menu-item {
   background: var(--white);
   border-radius: var(--borderRadius);
+  box-shadow: var(--grey-200) 2px 2px 2px 2px;
+  display: flex;
+  flex-direction: column;
 }
 .menu-item .img {
   height: 15rem;
