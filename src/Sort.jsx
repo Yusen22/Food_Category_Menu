@@ -1,9 +1,24 @@
-
 import { useState, useEffect } from "react"
 
-const Sort = ({ displayActive, activeCat, menuItems, setMenuItems, originalMenu, activeSort, setActiveSort, sortList }) => {
+import { FaArrowUp, FaArrowDown } from "react-icons/fa6"
+
+const Sort = ({ setDescendingSort, displayActive, activeCat, menuItems, originalMenu, activeSort, setActiveSort, sortList }) => {
    
     const menuKeys = Object.keys(menuItems[0])
+
+    const SortArrows = () => {
+      return (
+        <div>
+            <button onClick={() => {setDescendingSort(true)}}>
+                <FaArrowUp className="arrow-up"/>
+            </button>
+            <button onClick={() => {setDescendingSort(false)}}>
+                <FaArrowDown className="'arrow-down'"/>
+            </button>
+        </div>
+      )
+    }
+    
 
     const handleSortClick = (indx) => {
         const key = menuKeys[indx]
@@ -40,6 +55,7 @@ const Sort = ({ displayActive, activeCat, menuItems, setMenuItems, originalMenu,
                 <p  className={sortClass(2)} onClick={() => handleSortClick(2)}>{menuKeys[2]}</p>
             ) : ''}
             <p className={sortClass(3)} onClick={() => handleSortClick(3)}>{menuKeys[3]}</p>
+            <SortArrows></SortArrows>
         </div>
     )
 }

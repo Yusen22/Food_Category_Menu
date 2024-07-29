@@ -11,8 +11,9 @@ const App = () => {
   const [originalMenu, setOriginalMenu] = useState(menu)
   const [menuItems, setMenuItems] = useState(menu)
   const [categories, setCategories] = useState([])
-  const [activeCat, setActiveCat] = useState('')
+  const [activeCat, setActiveCat] = useState('all')
   const [activeSort, setActiveSort] = useState([])
+  const [descendingSort, setDescendingSort] = useState('asc')
 
 
 
@@ -42,15 +43,14 @@ const displayActive = (cat) => {
   }
 }
 
-const sortList = (term, order = 'asc') => {
-  console.log(term)
+const sortList = (term) => {
   const sortedMenu = [...menuItems].sort((a, b) => {
     if (term === 'price') {
       const comparison = a[term] - b[term]
-      return order === 'asc' ? comparison : -comparison;
-    }
+      return descendingSort ? comparison : -comparison;
+    } 
    const comparison = a[term].localeCompare(b[term])
-   return order === 'asc' ? comparison : -comparison;
+   return descendingSort ? comparison : -comparison;
   }
 )
   setMenuItems(sortedMenu)
@@ -61,7 +61,7 @@ const sortList = (term, order = 'asc') => {
     <main>|
       <Title>Our menu</Title>
       <CategoryButtons activeCat = {activeCat} category={categories} displayActive={displayActive} />
-      <Sort displayActive={displayActive} activeCat={activeCat}  sortList={sortList} setActiveSort={setActiveSort} activeSort={activeSort} originalMenu={originalMenu} menuItems = {menuItems} setMenuItems={setMenuItems}/>
+      <Sort descendingSort={descendingSort} setDescendingSort={setDescendingSort} displayActive={displayActive} activeCat={activeCat}  sortList={sortList} setActiveSort={setActiveSort} activeSort={activeSort} originalMenu={originalMenu} menuItems = {menuItems} setMenuItems={setMenuItems}/>
       <Menu menuItems = {menuItems}/>
 
 
